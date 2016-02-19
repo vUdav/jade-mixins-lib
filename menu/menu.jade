@@ -1,0 +1,16 @@
+//- Universal menu
+//- className - block name, ex. 'page-header'
+//- items - array menu list, ex. ['Item1','Item2']
+//- addClasses - array addition classes list, ex. ['hidden-xs','col-md-3']
+mixin menu(className, items, addClasses)
+	- var ulClass = className+'__menu'
+	- var liClass = className+'__menu-item'
+	- var classesList = ''
+	if addClasses
+		each addClass in addClasses
+			- classesList = classesList+' '+addClass
+		- ulClass = ulClass+classesList
+	ul(class= ulClass)
+		each item in items
+			li(class= liClass)
+				a(href='#')= item

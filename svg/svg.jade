@@ -1,0 +1,12 @@
+//- SVG generate from sprite symbols
+//- name - svg name, ex. 'logo'
+//- addClasses - some addition classes, ex. ['hidden-xs','col-sm-12']
+mixin svg(name, addClasses)
+	- var svgClass = 'svg-'+name
+	- var classesList = '';
+	if addClasses
+		each addClass in addClasses
+			- classesList = classesList+' '+addClass
+	- svgClass = svgClass+classesList
+	svg(class= svgClass)
+		use(xlink:href="##{name}")
